@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>the goods</h1>
+	<table>
+		<tr>
+			<th>id</th>
+			<th>name</th>
+			<th>remark</th>
+			<th>createdTime</th>
+			<th>operation</th>
+		</tr>
+		<tr th:each="good:${glist}">
+			<td th:text=${good.id}></td>
+			<td th:text=${good.name}></td>
+			<td th:text=${good.remark}>></td>
+			<td th:text="${#dates.format(good.createdTime,'yyyy/MM/dd HH:mm:ss')}"></td>
+			<td ><a th:href="@{/doDeleteById(id=${good.id})}">delete</a></td>
+		</tr>
+	</table>
+
+</body>
+</html>
